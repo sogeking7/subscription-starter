@@ -7,9 +7,9 @@ import { createStripePortal } from '@/utils/stripe/server';
 import Link from 'next/link';
 import Card from '@/components/ui/Card';
 import { Tables } from '@/types_db';
-import ProPlanTable from '../Tables/Pro';
 import BasicPlanMonthlyTable from '../Tables/Basic';
 import PremiumPlanMonthlyTable from '../Tables/Premium';
+import ProPlanMonthlyTable from '../Tables/Pro';
 
 type Subscription = Tables<'subscriptions'>;
 type Price = Tables<'prices'>;
@@ -78,7 +78,7 @@ export default function CustomerPortalForm({ subscription }: Props) {
         )}
       </div>
       {product_name==="Basic Plan" && <BasicPlanMonthlyTable/>}
-      {product_name==="Pro Plan" && <ProPlanTable />}
+      {product_name==="Pro Plan" && <ProPlanMonthlyTable />}
       {product_name==="Premium Plan" && <PremiumPlanMonthlyTable />}
     </Card>
   );
