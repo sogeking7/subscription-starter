@@ -7,6 +7,9 @@ import { createStripePortal } from '@/utils/stripe/server';
 import Link from 'next/link';
 import Card from '@/components/ui/Card';
 import { Tables } from '@/types_db';
+import ProPlanTable from '../Tables/Pro';
+import BasicPlanMonthlyTable from '../Tables/Basic';
+import PremiumPlanMonthlyTable from '../Tables/Premium';
 
 type Subscription = Tables<'subscriptions'>;
 type Price = Tables<'prices'>;
@@ -44,6 +47,8 @@ export default function CustomerPortalForm({ subscription }: Props) {
     return router.push(redirectUrl);
   };
 
+  const product_name = subscription?.prices?.products?.name;
+
   return (
     <Card
       title="Your Plan"
@@ -72,6 +77,9 @@ export default function CustomerPortalForm({ subscription }: Props) {
           <Link href="/">Choose your plan</Link>
         )}
       </div>
+      {product_name==="Basic Plan" && <BasicPlanMonthlyTable/>}
+      {product_name==="Pro Plan" && <ProPlanTable />}
+      {product_name==="Premium Plan" && <PremiumPlanMonthlyTable />}
     </Card>
   );
 }
