@@ -57,3 +57,16 @@ p a {
 .height-screen-helper {
   min-height: calc(100vh - 80px);
 }
+
+.background-image {
+  background-image: url('../public/background.jpg');
+  background-size: cover;
+  background-position: center;
+  /* height: v */
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  justify-content: center;
+  /* background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(223,157,14,1) 100%); */
+  align-items: center;
+}
